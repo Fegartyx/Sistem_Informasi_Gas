@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "665578801427",
+    "project_id": "sistem-informasi-gas-9e5a9",
+    "storage_bucket": "sistem-informasi-gas-9e5a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665578801427:android:3bc7a198f8205b654332e6",
+        "android_client_info": {
+          "package_name": "com.example.sisform_transaksi_stok_gas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665578801427-iduqtpmjrdnof2j12vgg2oc81ihk9bt7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3IvuUs5EPBDJRKsBFSmB7c-Fg1FciiWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665578801427-iduqtpmjrdnof2j12vgg2oc81ihk9bt7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
