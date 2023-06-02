@@ -108,6 +108,7 @@ Stream<List<Gas>> readDataWeekdays({required String path}) {
   final now = DateTime(today.year, today.month, today.day);
   // ambil hasil dari berapa waktu dari hari ini ke minggu kemaren lalu di substract(kurangi) dengan waktu sekarang
   // mis : hari ini 14 now.weekdays = 2 hari melewati hari minggu lalu substract dari hari ini 14 - 2 maka hari minggu = 12
+  // jadi 1 minggu tgl 12 - 18
   final startOfWeek = now.subtract(Duration(days: now.weekday - 1));
   final endOfWeek =
       startOfWeek.add(const Duration(days: 6)); // hari Minggu dari minggu ini
@@ -131,6 +132,9 @@ Stream<List<Gas>> readDataMonth({required String path}) {
   debugPrint('Read Month Data');
   final now = DateTime.now();
 
+  /// Ambil Tahun dan Bulan sekarang tapi di tanggal 1
+  /// lalu ambil tahun sekarang bulan sekarang + 1 di tanggal pertama lalu substract(kurangi) dengan durasi 1 hari
+  /// dimana jika bulan juni tgl 1 maka hasilnya bulan mei tgl 31
   final startOfMonth = DateTime(now.year, now.month, 1);
   final endOfMonth =
       DateTime(now.year, now.month + 1, 1).subtract(const Duration(days: 1));

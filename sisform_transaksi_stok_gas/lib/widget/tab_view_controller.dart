@@ -25,6 +25,7 @@ class _TabViewControllerState extends State<TabViewController> {
 
     return DefaultTabController(
       length: 4,
+      initialIndex: 1,
       child: Scaffold(
         appBar: AppBar(
           title: Text('ViewData ${arguments.path}'),

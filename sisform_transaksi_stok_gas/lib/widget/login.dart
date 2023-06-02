@@ -20,7 +20,9 @@ class _LoginState extends State<Login> {
       await Auth().signInWithEmailPassword(
           email: emailController.text, password: passwordController.text);
     } on FirebaseAuthException catch (e) {
-      errorMessage = e.message!;
+      setState(() {
+        errorMessage = e.message!;
+      });
     }
   }
 
@@ -36,7 +38,7 @@ class _LoginState extends State<Login> {
       decoration: InputDecoration(
         labelText: title,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
         ),
       ),
     );

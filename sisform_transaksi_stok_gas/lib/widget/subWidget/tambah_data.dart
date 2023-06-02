@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sisform_transaksi_stok_gas/widget/firebase/connection.dart';
 
+import '../tab_view_controller.dart';
+
 class TambahData extends StatelessWidget {
   TambahData({Key? key, this.path}) : super(key: key);
   final String? path;
@@ -84,6 +86,13 @@ class TambahData extends StatelessWidget {
                         harga: int.tryParse(harga.text)!,
                         datang_sisa: int.tryParse(datang_sisaController.text)!,
                         date: DateTime.parse(date.text),
+                      );
+                      Navigator.pushReplacementNamed(
+                        context,
+                        '/tab-view',
+                        arguments: const TabViewController(
+                          path: '3 kg',
+                        ),
                       );
                     }
                   },
