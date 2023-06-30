@@ -78,22 +78,38 @@ class TambahData extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_formState.currentState!.validate()) {
-                      // do Something
-                      createData(
-                        path: arguments.path!,
-                        laku: int.tryParse(laku.text)!,
-                        harga: int.tryParse(harga.text)!,
-                        datang_sisa: int.tryParse(datang_sisaController.text)!,
-                        date: DateTime.parse(date.text),
-                      );
-                      Navigator.pushReplacementNamed(
-                        context,
-                        '/tab-view',
-                        arguments: const TabViewController(
-                          path: '3 kg',
-                        ),
-                      );
+                    try {
+                      if (_formState.currentState!.validate()) {
+                        if (int.parse(laku.text) <
+                            int.parse(datang_sisaController.text)) {
+                          createData(
+                            path: arguments.path!,
+                            laku: int.tryParse(laku.text)!,
+                            harga: int.tryParse(harga.text)!,
+                            datang_sisa:
+                                int.tryParse(datang_sisaController.text)!,
+                            date: DateTime.parse(date.text),
+                          );
+                          Navigator.pushReplacementNamed(
+                            context,
+                            '/tab-view',
+                            arguments: const TabViewController(
+                              path: '3 kg',
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text('Invalid Laku Value'),
+                            backgroundColor: Colors.red,
+                          ));
+                        }
+                      }
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(e.toString()),
+                        backgroundColor: Colors.red,
+                      ));
                     }
                   },
                   style: ButtonStyle(

@@ -1,5 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+/**
+ * Class untuk melakukan fungsi auth seperti BaseAuth di Dio
+ */
+
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 

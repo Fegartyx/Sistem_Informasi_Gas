@@ -11,7 +11,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  String errorMessage = '';
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -20,14 +19,11 @@ class _LoginState extends State<Login> {
       await Auth().signInWithEmailPassword(
           email: emailController.text, password: passwordController.text);
     } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message!;
-      });
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(e.toString()),
+        backgroundColor: Colors.red,
+      ));
     }
-  }
-
-  Widget _errorMessage() {
-    return Text(errorMessage == '' ? '' : 'Humm ? $errorMessage');
   }
 
   Widget _entryField(String title, TextEditingController controller,
@@ -87,7 +83,6 @@ class _LoginState extends State<Login> {
                 height: 25,
               ),
               _submitButton(),
-              _errorMessage(),
               // untuk jarak yg jauh biasa digunakan buat footer contohnya
               // Spacer(),
             ],

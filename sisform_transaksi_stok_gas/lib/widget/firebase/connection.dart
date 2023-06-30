@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../class/gas.dart';
 
+/// TODO : Create Data
 Future createData(
     {required int datang_sisa,
     required int harga,
@@ -28,6 +29,7 @@ Future createData(
   }
 }
 
+/// TODO : Edit Data
 Future editData(
     {required int datang_sisa,
     required String id,
@@ -56,6 +58,7 @@ Future editData(
   }
 }
 
+/// TODO : Read Data
 Stream<List<Gas>> readData({required String path, String? first, String? end}) {
   debugPrint('Read Custom Data');
 
@@ -80,6 +83,7 @@ Stream<List<Gas>> readData({required String path, String? first, String? end}) {
   });
 }
 
+/// TODO : Read Data Hari
 Stream<List<Gas>> readDataDays({required String path}) {
   debugPrint('Read Days Data');
   final now = DateTime.now();
@@ -101,6 +105,7 @@ Stream<List<Gas>> readDataDays({required String path}) {
   }
 }
 
+/// TODO : Read Data Minggu
 Stream<List<Gas>> readDataWeekdays({required String path}) {
   debugPrint('Read Weeks Data');
   // ambil waktu hari ini
@@ -128,6 +133,7 @@ Stream<List<Gas>> readDataWeekdays({required String path}) {
   }
 }
 
+/// TODO : Read Data Bulan
 Stream<List<Gas>> readDataMonth({required String path}) {
   debugPrint('Read Month Data');
   final now = DateTime.now();
@@ -154,6 +160,7 @@ Stream<List<Gas>> readDataMonth({required String path}) {
   }
 }
 
+/// TODO : Delete Data
 Future deleteData({required String id, required String path}) async {
   final docUser = FirebaseFirestore.instance.collection(path).doc(id);
   await docUser.delete();
